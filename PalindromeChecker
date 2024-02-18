@@ -1,0 +1,72 @@
+import java.util.Random;
+/**
+ *
+ * @author microsoft
+ */
+public class IsPalindrome {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //First sring is a palindrome
+        String word1 = "helloolleh";
+        System.out.println(word1+"\n");
+        String result = palindrome(word1);
+        System.out.println(result+"\n");
+       
+        //Second sring isn't a palindrome
+        String word2 = "earthbound";
+        System.out.println(word2+"\n");
+        String result2 = palindrome(word2);
+        System.out.println(result2+"\n");
+       
+        //Thrid sring is random letters
+        int length = 10;
+        String word3 = generateRandomString(length);
+        System.out.println(word3+"\n");
+        String result3 = palindrome(word3);
+        System.out.println(result3+"\n");
+
+    }
+    public static String palindrome (String s) {
+        long startTime = System.nanoTime();
+        String word = s.toLowerCase().replace(" ","");
+        char [] wordOne = new char[word.length()];
+        int count = 0;
+        String result = "";
+        for( int i = 0; i < word.length(); i++) {
+            if (Character.isLetter(word.charAt(i))) {
+                wordOne[i] = word.charAt(i);
+                count++;
+            }
+        }
+        for(int j=0; j < count; j++) {
+            if(wordOne[j] != wordOne[count-1-j]) {
+                long endTime   = System.nanoTime();
+                long totalTime = endTime - startTime;
+                System.out.println("Time spent in nanoseconds: " + totalTime);
+                result = "Not a palindrome.";
+                return result;
+            } else {
+                result = "Is a palindrome.";
+            }
+        }
+        long endTime   = System.nanoTime();
+        long totalTime = endTime - startTime;
+        System.out.println("Time spent in nanoseconds: " + totalTime);
+        return result;
+    }
+   
+    public static String generateRandomString(int length) {
+        String characters = "abcdefghijklmnopqrstuvwxyz";
+        StringBuilder result = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            int randomIndex = random.nextInt(characters.length());
+            result.append(characters.charAt(randomIndex));
+        }
+        return result.toString();
+    }
+    
+}
