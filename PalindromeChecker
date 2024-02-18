@@ -9,19 +9,19 @@ public class IsPalindrome {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //First sring is a palindrome
+        //First string is a palindrome
         String word1 = "helloolleh";
         System.out.println(word1+"\n");
         String result = palindrome(word1);
         System.out.println(result+"\n");
        
-        //Second sring isn't a palindrome
+        //Second string isn't a palindrome
         String word2 = "earthbound";
         System.out.println(word2+"\n");
         String result2 = palindrome(word2);
         System.out.println(result2+"\n");
        
-        //Thrid sring is random letters
+        //Third string is random letters
         int length = 10;
         String word3 = generateRandomString(length);
         System.out.println(word3+"\n");
